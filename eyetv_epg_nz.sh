@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Location of EyeTV
-EYETV_FILENAME="/Applications/EyeTV.app"
+EYETV_BUNDLE="com.elgato.eyetv"
 
 # This locaation has to be readable/writable/executable by the user the cronjob is run as (script will return an error if it's not)
 LOCATION_OF_SCRIPT="/dvbt/"
@@ -39,7 +39,7 @@ if [[ ! -f "${LOCATION_OF_SCRIPT}${GZ_FILE_NAME}" ]]; then
 
 	# Open the xml file with EyeTV in the background
 	echo "Opens xml file with $EYETV_FILENAME"
-	open -g "${LOCATION_OF_SCRIPT}${EXTRACTED_FILE_NAME}" -a "$EYETV_FILENAME"
+	open -g "${LOCATION_OF_SCRIPT}${EXTRACTED_FILE_NAME}" -b "$EYETV_BUNDLE"
 	
 	# Clean up
 	echo "Deleting gz and extracted xml files"
